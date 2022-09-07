@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{%  url 'index' %}">YbBlog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{%  url 'about' %}">Hakkımızda <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="{% url 'article:articles' %}">Makaleler</a> 
+    </div>
+  </div>
+
+
+  <ul class="navbar-nav ml-auto">
+
+  {% if request.user.is_authenticated %}
+  <li class="nav-item nav-link active">
+    <a class="nav-link" href="{% url 'article:dashboard'  %}">Kontrol Paneli</a>
+  </li>
+  <li class="nav-item nav-link active">
+    <a class="nav-link" href="{% url 'user:logout' %}">Çıkış Yap</a>
+  </li>
+  {% else %}
+  <li class="nav-item nav-link active">
+    <a class="nav-link" href="{% url 'user:login'  %}">Giriş Yap</a>
+  </li>
+  {% endif %}
+  <li class="nav-item nav-link active">
+    <a class="nav-link" href="{% url 'user:register'  %}">Kayıt ol</a>
+  </li>
+
+  
+  </ul>
+  
+</nav>

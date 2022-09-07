@@ -1,0 +1,22 @@
+<div class="card my-4">
+    <h5 class="card-header">Yorum Ekle:</h5>
+    <div class="card-body">
+        <!-- Comment form-->
+        <form action="{% url 'article:comment' article.id %}" method="POST" novalidate >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">İsim</label>
+                <input name= "comment_author" type="text" class="form-control" id="formGroupExampleInput" placeholder="İsminizi Girin">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Yorum</label>
+                <textarea name = "comment_content" class="form-control" rows="3" placeholder="Yorumunuzu Buraya Ekleyin.."></textarea></form>
+            </div>
+            <div class="text-right">
+                <button type = "submit" class = "btn btn-primary">
+                    Submit
+                </button>
+            </div>  
+            </form>
+            
+    </div>
